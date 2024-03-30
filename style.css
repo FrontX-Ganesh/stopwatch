@@ -1,0 +1,43 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    height: 100vh;
+    background: linear-gradient(to right, #45a247, #283c86);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.main-div{
+    width: 400px;
+    padding: 30px;
+    background-color: #1a1818;
+    color: #fff;
+}
+.timing{
+    font-size: 45px;
+    display: flex;
+    justify-content: center;
+    color: #ff0000;
+}
+.start-reset-button, .stop-getTime-button, .clear-time-button{
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 10px;
+}
+button{
+    padding: 10px;
+    border-style: none;
+    border-radius: 13px;
+    width: 30%;
+    cursor: pointer;
+}
+.pause-time{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: #ff0000;
+}

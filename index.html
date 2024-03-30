@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="main-div">
+            <div class="timing" id="timing">0</div>
+            <div class="start-reset-button">
+                <button type="button" id="start-button">Start</button>
+                <button type="button" id="reset-button">Reset</button>
+            </div>
+            <div class="stop-getTime-button">
+                <button type="button" id="stop-button">Stop</button>
+                <button type="button" id="get-time-button">Get Time</button>
+            </div>
+            <div class="clear-time-button">
+                <button type="button" id="clear-time-button">Clear Time</button>
+            </div>
+            <div class="pause-time" id="pause-time"></div>
+        </div>
+    </body>
+    <script>
+        const startButton = document.getElementById('start-button');
+        const resetButton = document.getElementById('reset-button');
+        const stopButton = document.getElementById('stop-button');
+        const getTimeButton = document.getElementById('get-time-button');
+        const clearTimeButton = document.getElementById('clear-time-button');
+        const timing = document.getElementById('timing');
+        const pauseTime = document.getElementById('pause-time');
+
+        let startCounter = 0;
+        let timer
+
+        startButton.addEventListener('click', () => {
+            timer = setInterval(() => {
+                startCounter++;
+                timing.textContent = startCounter;
+            }, 500)
+        })
+
+        stopButton.addEventListener('click', () => {
+            clearInterval(timer)
+        })
+
+        resetButton.addEventListener('click', () => {
+            startCounter = 0;
+            timing.textContent = startCounter;
+            clearInterval(timer)
+        })
+
+        getTimeButton.addEventListener('click', () => {
+            const spanElement = document.createElement("span");
+            spanElement.textContent = `Pause time is ${startCounter}`;
+            pauseTime.appendChild(spanElement)
+        })
+
+        clearTimeButton.addEventListener('click', () => {
+            pauseTime.textContent = ''
+        })
+    </script>
+</html>
